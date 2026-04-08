@@ -379,10 +379,11 @@ export default function ConstraintPoemPage() {
             backdropFilter: "blur(12px)",
             border: "1px solid rgba(180,210,195,0.2)",
             color: "rgba(200,228,215,0.85)",
+            transition: "background 150ms ease-out, border-color 150ms ease-out",
           }}
           onMouseEnter={(e) => {
-            (e.currentTarget as HTMLButtonElement).style.background = "rgba(20,35,28,0.75)";
-            (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(180,210,195,0.35)";
+            (e.currentTarget as HTMLButtonElement).style.background = "rgba(50,80,65,0.7)";
+            (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(180,210,195,0.4)";
           }}
           onMouseLeave={(e) => {
             (e.currentTarget as HTMLButtonElement).style.background = "rgba(10,18,14,0.6)";

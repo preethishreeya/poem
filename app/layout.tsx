@@ -10,8 +10,8 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Pause — Spending Reality Check",
-  description: "See the real impact of impulse purchases on your debt-free date before you buy.",
+  title: "Constraint Poem Generator",
+  description: "Set a mood, topic, or syllable count and get a poem to share with a friend.",
 };
 
 export default function RootLayout({
