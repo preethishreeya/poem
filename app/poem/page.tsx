@@ -226,7 +226,32 @@ export default function ConstraintPoemPage() {
 
   const DISSOLVE = 500;
 
+  function playEtherealChime() {
+    try {
+      const ctx = new AudioContext();
+      // Three sine tones: root, major third, perfect fifth — a soft major chord
+      const notes = [523.25, 659.25, 783.99]; // C5, E5, G5
+      notes.forEach((freq, i) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.type = "sine";
+        osc.frequency.value = freq;
+        const start = ctx.currentTime + i * 0.06; // slight stagger
+        gain.gain.setValueAtTime(0, start);
+        gain.gain.linearRampToValueAtTime(0.12, start + 0.04);
+        gain.gain.exponentialRampToValueAtTime(0.0001, start + 1.8);
+        osc.start(start);
+        osc.stop(start + 1.8);
+      });
+    } catch {
+      // AudioContext not available — fail silently
+    }
+  }
+
   async function generate() {
+    playEtherealChime();
     setContentOpacity(0);
     await new Promise((r) => setTimeout(r, DISSOLVE));
 

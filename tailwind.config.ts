@@ -29,7 +29,7 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["DM Sans", "sans-serif"],
+        sans: ["Inter", "sans-serif"],
       },
       borderRadius: {
         card: "14px",
