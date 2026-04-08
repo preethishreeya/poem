@@ -30,3 +30,6 @@ body {
 .anim-fade-in {
   animation: fadeIn 0.4s ease both;
 }
+
+.poem-scroll::-webkit-scrollbar { display: none; }
+.poem-scroll { scrollbar-width: none; }

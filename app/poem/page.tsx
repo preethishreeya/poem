@@ -347,7 +347,7 @@ export default function ConstraintPoemPage() {
       {/* Poem display */}
       <div className="relative z-10 flex items-center justify-center w-full px-6">
         <div
-          className="relative rounded-[36px] px-14 py-12 flex items-center justify-center"
+          className="relative rounded-[36px] poem-scroll flex items-center justify-center"
           style={{
             background: "rgba(8,14,10,0.45)",
             backdropFilter: "blur(22px)",
@@ -358,6 +358,7 @@ export default function ConstraintPoemPage() {
             minHeight: "200px",
             maxHeight: "380px",
             overflowY: "auto",
+            padding: "48px 56px",
           }}
         >
           <div
