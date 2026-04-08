@@ -25,6 +25,7 @@ function HallBackground() {
   return (
     <svg
       className="absolute inset-0 w-full h-full"
+      style={{ pointerEvents: "none" }}
       viewBox="0 0 1440 900"
       preserveAspectRatio="xMidYMid slice"
       xmlns="http://www.w3.org/2000/svg"
@@ -333,7 +334,7 @@ export default function ConstraintPoemPage() {
             boxShadow: "0 0 60px rgba(0,0,0,0.4), inset 0 1px 0 rgba(200,230,215,0.06)",
             minWidth: "540px",
             maxWidth: "700px",
-            minHeight: "210px",
+            height: "280px",
           }}
         >
           <div
@@ -475,8 +476,14 @@ export default function ConstraintPoemPage() {
         </div>
 
         {/* Email section */}
-        {poem && (
-          <div className="mt-5 pt-5 anim-fade-in" style={{ borderTop: "1px solid rgba(180,210,195,0.07)" }}>
+        <div
+          style={{
+            maxHeight: poem ? "80px" : "0px",
+            overflow: "hidden",
+            transition: "max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
+          }}
+        >
+        <div className="mt-5 pt-5" style={{ borderTop: "1px solid rgba(180,210,195,0.07)" }}>
             {emailSent ? (
               <p className="text-xs tracking-widest uppercase text-center" style={{ color: "rgba(160,195,178,0.4)" }}>
                 Opening your mail app…
@@ -529,7 +536,7 @@ export default function ConstraintPoemPage() {
               </button>
             )}
           </div>
-        )}
+        </div>
       </div>
     </div>
   );
