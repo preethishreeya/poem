@@ -355,7 +355,9 @@ export default function ConstraintPoemPage() {
             boxShadow: "0 0 60px rgba(0,0,0,0.4), inset 0 1px 0 rgba(200,230,215,0.06)",
             minWidth: "540px",
             maxWidth: "700px",
-            height: "280px",
+            minHeight: "200px",
+            maxHeight: "380px",
+            overflowY: "auto",
           }}
         >
           <div
