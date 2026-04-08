@@ -222,19 +222,18 @@ export default function ConstraintPoemPage() {
   const [emailSent, setEmailSent] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [error, setError] = useState("");
-  const [contentKey, setContentKey] = useState(0);
   const [contentOpacity, setContentOpacity] = useState(1);
 
+  const DISSOLVE = 500;
+
   async function generate() {
-    // Fade out current content first
     setContentOpacity(0);
-    await new Promise((r) => setTimeout(r, 280));
+    await new Promise((r) => setTimeout(r, DISSOLVE));
 
     setLoading(true);
     setPoem("");
     setError("");
     setEmailSent(false);
-    setContentKey((k) => k + 1);
     setContentOpacity(1);
 
     try {
@@ -245,18 +244,15 @@ export default function ConstraintPoemPage() {
       });
       const data = await res.json();
 
-      // Fade out loading dots, then reveal poem
       setContentOpacity(0);
-      await new Promise((r) => setTimeout(r, 220));
+      await new Promise((r) => setTimeout(r, DISSOLVE));
       if (data.error) setError(data.error);
       else setPoem(data.poem);
-      setContentKey((k) => k + 1);
       setContentOpacity(1);
     } catch {
       setContentOpacity(0);
-      await new Promise((r) => setTimeout(r, 180));
+      await new Promise((r) => setTimeout(r, DISSOLVE));
       setError("Something went wrong. Check the terminal for details.");
-      setContentKey((k) => k + 1);
       setContentOpacity(1);
     } finally {
       setLoading(false);
@@ -338,11 +334,10 @@ export default function ConstraintPoemPage() {
           }}
         >
           <div
-            key={contentKey}
-            className="anim-fade-up flex items-center justify-center w-full"
+            className="flex items-center justify-center w-full"
             style={{
               opacity: contentOpacity,
-              transition: "opacity 0.28s ease",
+              transition: `opacity ${500}ms ease`,
             }}
           >
             {loading ? (
